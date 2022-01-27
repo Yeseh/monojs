@@ -1,0 +1,17 @@
+{
+    "name": "@yeseh/collections",
+    "version": "0.0.1",
+    "main": "dist/collections.js",
+    "module": "dist/collections.mjs",
+    "typings": "dist/collections.d.ts",
+    "scripts": {
+        "build": "rollup -c"
+    },
+    "author": "Yeseh",
+    "license": "MIT",
+    "type": "module",
+    "devDependencies": {
+        "typescript": "^4.5.5"
+    },
+    "dependencies": {}
+}

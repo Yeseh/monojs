@@ -83,7 +83,6 @@ module.exports = {
 		// 'class-methods-use-this': 'off',
 		// 'complexity': 'off',
 		// 'consistent-return': 'off'
-		// TODO(philipwalton): add an option to enforce braces with the
 		// exception of simple, single-line if statements.
 		'curly': ['error', 'all'],
 		// 'default-case': 'off',
@@ -390,5 +389,6 @@ module.exports = {
 		'@typescript-eslint/interface-name-prefix': 'off',
 		'@typescript-eslint/no-explicit-any': 'off',
 		'@typescript-eslint/no-var-requires': 'off',
+		'@typescript-eslint/no-non-null-assertion': 'off',
 	},
 };

@@ -1,11 +1,15 @@
 {
   "name": "@yeseh/soar-core",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "version": "0.0.1",
+  "main": "dist/soar-core.js",
+  "module": "dist/soar-core.mjs",
+  "typings": "dist/soar-core.d.ts",
   "scripts": {
-	  "start":"tsc && node dist/index.js"
+      "build": "rollup -c"
   },
+  "author": "Yeseh",
+  "license": "MIT",
+  "type": "module",
   "dependencies": {
     "express": "^4.17.1",
     "mssql": "^7.3.0",

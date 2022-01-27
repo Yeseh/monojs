@@ -1,13 +1,13 @@
 import {
 	Router as ExRouter,
-	Handler
-} from "express";
+	Handler,
+} from 'express';
 
 type RouteType = 'get' | 'update' | 'create' | 'delete';
 
-interface RouterOptions {
-	path: string,
-	routes: RouteType[]
+export interface RouterOptions {
+	path: string;
+	routes: RouteType[];
 }
 
 export class Router {
@@ -29,10 +29,12 @@ export class Router {
 	}
 
 	build() {
-		if (this.isBuilt) return this._router;
+		if (this.isBuilt) {
+			return this._router;
+		}
 
-		for (let h of this.chain) {
-			this._router.use(h)
+		for (const h of this.chain) {
+			this._router.use(h);
 		}
 
 		this.isBuilt = true;

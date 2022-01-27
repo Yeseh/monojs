@@ -1,11 +1,11 @@
 import { warn } from 'console';
 import mssql, { IRecordSet } from 'mssql';
 import { Result, Option } from '@yeseh/result';
-
+import { IAdapter } from '@yeseh/soar-core';
 
 export type QueryResult<T> = Promise<Option<IRecordSet<T>>>
 
-export class MSSQLAdapter {
+export class MSSQLAdapter implements IAdapter {
 	_connStr: string;
 	_pool?: mssql.ConnectionPool = undefined;
 

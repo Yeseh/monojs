@@ -1,0 +1,20 @@
+{
+    "name": "@yeseh/soar-mmsql",
+    "version": "0.0.1",
+    "main": "dist/soar-mmsql.js",
+    "module": "dist/soar-mmsql.mjs",
+    "typings": "dist/soar-mmsql.d.ts",
+    "scripts": {
+        "build": "rollup -c"
+    },
+    "author": "Yeseh",
+    "license": "MIT",
+    "type": "module",
+    "devDependencies": {
+        "@types/express": "^4.17.13",
+        "@types/mssql": "^7.1.4"
+    },
+    "dependencies": {
+        "mssql": "^7.3.0"
+    }
+}

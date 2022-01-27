@@ -1,10 +1,10 @@
-import { MSSQLAdapter } from './adapter';
+import { IAdapter } from './types';
 
 declare global {
 	namespace Express {
 		export interface Request {
-			adapter?: MSSQLAdapter;
 			result?: any;
+			adapter?: IAdapter
 		}
 	}
 }

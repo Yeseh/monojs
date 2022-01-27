@@ -19,6 +19,7 @@
   "devDependencies": {
     "@yeseh/eslint-config": "latest",
     "@yeseh/prettier-config": "latest",
+    "@changesets/cli": "^2.20.0",
     "child_process": "^1.0.2",
     "esbuild": "^0.14.14",
     "prettier": "^2.5.1",
@@ -33,6 +34,5 @@
   },
   "packageManager": "yarn@1.22.17",
   "dependencies": {
-    "@changesets/cli": "^2.20.0"
   }
 }

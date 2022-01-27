@@ -1,6 +1,6 @@
 import { Router, RouterOptions } from 'express';
-import { Entity } from './entities/entity';
-import { buildGetRoute } from './mw-factories';
+import { Entity } from './entity';
+import { buildGetRoute } from '../core/src/mw-factories';
 
 export function routerFromEntity(entity: Entity, opts?: RouterOptions): Router {
 	const router = Router();

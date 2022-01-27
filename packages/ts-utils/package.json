@@ -1,0 +1,17 @@
+{
+    "name": "@yeseh/ts-utils",
+    "version": "0.0.1",
+    "main": "dist/ts-utils.js",
+    "module": "dist/ts-utils.mjs",
+    "typings": "dist/ts-utils.d.ts",
+    "scripts": {
+        "build": "rollup -c"
+    },
+    "author": "Yeseh",
+    "license": "MIT",
+    "type": "module",
+    "devDependencies": {
+        "typescript": "^4.5.5"
+    },
+    "dependencies": {}
+}

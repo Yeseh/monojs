@@ -1,11 +1,17 @@
-import { MSSQLAdapter } from './adapter';
+import { IAdapter } from './types' 
 import express, { Handler, Router } from 'express';
 import {
 	buildInitRequest, buildGetRoute, buildParseResponse,
 } from './mw-factories';
+import { PathLike } from 'fs';
 
-interface IAuthenticator {
+export interface IAuthenticator {
 	authenticate: () => Handler;
+}
+
+export interface ApplicationOpts {
+	initRequestMw: Handler;
+	autoloadFolder: string;
 }
 
 export interface RouterOptions {
@@ -15,19 +21,22 @@ export interface RouterOptions {
 	authenticator?: IAuthenticator;
 }
 
-class Application {
-	_adapter: MSSQLAdapter
+export class Application {
+	_adapter: IAdapter 
 	_app: express.Application
+	autoloadLocation: PathLike;
 	initRequestMw?: Handler = undefined;
 
-	constructor(adapter: MSSQLAdapter) {
+	constructor(adapter: IAdapter, opts: ApplicationOpts) {
 		this._adapter = adapter;
 		this._app = express();
-		this.initRequestMw = buildInitRequest(this._adapter);
+		this.initRequestMw = opts.initRequestMw ?? buildInitRequest(this._adapter);
+		this.autoloadLocation = opts.autoloadFolder;
 	}
 
 	async start(port: number): Promise<void> {
 		await this._adapter.init();
+
 		this._app.listen(port,
 			() => console.log('Induct app started on port ' + port)
 		);
@@ -53,4 +62,6 @@ class Application {
 	}
 }
 
-export const createApp = (adapter: MSSQLAdapter): Application => new Application(adapter);
+export function createApp(adapter: IAdapter, opts: ApplicationOpts): Application {
+	return new Application(adapter, opts);
+} 

@@ -1,25 +1,27 @@
-export type Option<T> = T | null
+export type Option<T> = T | null;
 
-export class Result<T> {
-	_prom: Promise<unknown>;
+export class Result {
+	_prom?: Promise<unknown>;
 	resolved: boolean;
 	value: Option<unknown>;
 	error: Option<Error>;
 
-	constructor(promise: Promise<any>) {
+	constructor(promise?: Promise<any>) {
 		this._prom = promise;
 		this.resolved = false;
 		this.value = null;
 		this.error = null;
 	}
 
-	async resolve(): Promise<Result<T>> {
+	async resolve(): Promise<Result> {
 		if (this.resolved) {
 			return this;
 		}
 
-		this.value = await this._prom
-			.catch((e) => this.error = e);
+		if (this._prom) {
+			this.value = await this._prom
+				.catch((e) => this.error = e);
+		}
 
 		this.resolved = true;
 
@@ -34,5 +36,20 @@ export class Result<T> {
 			throw this.error;
 		}
 		return this.value as Option<T>;
+	}
+}
+
+
+export class TResult<T> extends Result {
+	constructor(promise?: Promise<any>) {
+		super(promise);
+	}
+
+	async resolve(): Promise<TResult<T>> {
+		return super.resolve();
+	}
+
+	unwrap<T>(): Option<T> {
+		return super.unwrap();
 	}
 }

@@ -1,10 +1,10 @@
-import { MSSQLAdapter } from './adapter';
 import {
 	Handler, Request, Response, NextFunction,
 } from 'express';
 import { handleAsync } from './utils';
+import { IAdapter } from '.';
 
-export function buildInitRequest(adapter: MSSQLAdapter): Handler {
+export function buildInitRequest(adapter: IAdapter): Handler {
 	return function(req: Request, _, next: NextFunction) {
 		req.adapter = adapter;
 		next();
@@ -31,7 +31,7 @@ export function buildGetRoute(table: string, keyField = 'id'): Handler {
 			return next(result.error);
 		}
 
-		req.result = result.unwrapMsSql();
+		req.result = result.unwrap();
 
 		next();
 	});
