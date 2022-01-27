@@ -1,19 +1,19 @@
 export type Option<T, E> = T | E;
 
-export class Result {
-	_prom?: Promise<unknown>;
+export class Result<T> {
+	_prom?: Promise<T>;
 	resolved: boolean;
-	value: Option<unknown, null>;
+	value: Option<T, null>;
 	error: Option<Error, null>;
 
-	constructor(promise?: Promise<any>) {
+	constructor(promise?: Promise<T>) {
 		this._prom = promise;
 		this.resolved = false;
 		this.value = null;
 		this.error = null;
 	}
 
-	static error(msg?: string): Result {
+	static error(msg?: string): Result<void> {
 		var result = new Result();
 		result.error = new Error(msg);
 		return new Result()
@@ -33,7 +33,7 @@ export class Result {
 		this.resolved = true;
 	}
 
-	async unwrap(): Promise<Option<unknown, Error>> {
+	async unwrap(): Promise<Option<T, Error>> {
 		if (this.error) {
 			return this.error;
 		}
@@ -46,20 +46,6 @@ export class Result {
 			}
 		};
 
-		return this.value as unknown;
-	}
-}
-
-export class TResult<T> extends Result {
-	constructor(promise?: Promise<any>) {
-		super(promise);
-	}
-
-	async resolve(): Promise<void> {
-		return super.resolve();
-	}
-
-	async unwrap(): Promise<Option<T, Error>> {
-		return super.unwrap() as Promise<Option<T, Error>>;
+		return this.value as T;
 	}
 }

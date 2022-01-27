@@ -1,6 +1,6 @@
-import { Result, TResult } from './result';
+import { Result } from './result';
 import type { Option } from './result';
 
-export { Result, TResult, Option };
+export { Result, Option };
 
 export default Result;
