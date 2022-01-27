@@ -1,7 +1,7 @@
 import { IAdapter } from './types' 
 import express, { Handler, Router } from 'express';
 import {
-	buildInitRequest, buildGetRoute, buildParseResponse,
+	buildInitRequest, buildGetRoute, buildUnwrapResult,
 } from './mw-factories';
 import { PathLike } from 'fs';
 
@@ -57,7 +57,7 @@ export class Application {
 
 	getRoute(router: Router, table: string, baseChain: Handler[]): void {
 		baseChain.push(buildGetRoute(table));
-		baseChain.push(buildParseResponse());
+		baseChain.push(buildUnwrapResult());
 		router.get(`/`, baseChain);
 	}
 }

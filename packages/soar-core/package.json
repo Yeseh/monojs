@@ -1,0 +1,23 @@
+{
+  "name": "@yeseh/soar-core",
+  "version": "0.0.1",
+  "main": "dist/soar-core.js",
+  "module": "dist/soar-core.mjs",
+  "typings": "dist/soar-core.d.ts",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "author": "Yeseh",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mssql": "^7.3.0",
+    "tedious": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/mssql": "^7.1.4",
+    "@types/node": "^16.11.11"
+  }
+}

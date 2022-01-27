@@ -1,4 +1,4 @@
-import { MSSQLAdapter } from '../../mmsql/src/adapter';
+import { MSSQLAdapter } from './adapter';
 
 declare global {
 	namespace Express {

@@ -150,13 +150,13 @@ export class MSSQLAdapter implements IAdapter {
 			request.input(par.name, par.value);
 		}
 
-		const query = `UPDATE [${table}] SET ${sets} WHERE [${idField}] = @id`;
+		const query = `UPDATE ${this._quoteName(table)}] SET ${sets} WHERE ${this._quoteName(idField)} = @id`;
 
 		return new Result(request.query(query));
 	}
 
 	_quoteName(name: string) {
-		return `[${name}}`;
+		return `[${name}]`;
 	}
 
 	_buildSets(setObj: Record<string, string | number>, paramPrefix = 'p') {

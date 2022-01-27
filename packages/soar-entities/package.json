@@ -1,17 +1,17 @@
 {
-  "name": "@yeseh/soar-core",
+  "name": "@yeseh/soar-entities",
   "version": "0.0.1",
-  "main": "dist/soar-core.js",
-  "module": "dist/soar-core.mjs",
-  "typings": "dist/soar-core.d.ts",
+  "main": "dist/soar-entities.js",
+  "module": "dist/soar-entities.mjs",
+  "typings": "dist/soar-entities.d.ts",
   "scripts": {
-      "build": "rollup -c"
+    "build": "rollup -c"
   },
   "author": "Yeseh",
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "mssql": "^7.3.0",
     "tedious": "^14.0.0"
   },

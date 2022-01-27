@@ -3,5 +3,5 @@ export type { RouterOptions as AddRouterOpts, IAuthenticator, ApplicationOpts } 
 export type { RouterOptions } from './router'
 
 export { Application, createApp } from './application'
-export { buildInitRequest, buildParseResponse, buildGetRoute } from './mw-factories'
+export { buildInitRequest, buildUnwrapResult as buildParseResponse, buildGetRoute } from './mw-factories'
 export { Router } from './router'
