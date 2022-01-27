@@ -1,0 +1,15 @@
+{
+  "name": "@yeseh/module-starter",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "author": "Yeseh",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {},
+  "dependencies": {}
+}

@@ -1,0 +1,16 @@
+{
+    "name": "@yeseh/result",
+    "version": "0.0.1",
+    "main": "dist/result.js",
+    "module": "dist/result.mjs",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "build": "rollup -c"
+    },
+    "author": "Yeseh",
+    "license": "MIT",
+    "type": "module",
+    "devDependencies": {},
+    "dependencies": {},
+    "typings": "dist/result.d.ts"
+}

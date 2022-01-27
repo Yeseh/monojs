@@ -1,0 +1,38 @@
+{
+  "name": "@yeseh/monojs",
+  "prettier": "@yeseh/prettier-config",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "templates/*",
+    "tools/*"
+  ],
+  "scripts": {
+    "gen-package": "node tools/scripts/gen-package.js",
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "@yeseh/eslint-config": "latest",
+    "@yeseh/prettier-config": "latest",
+    "child_process": "^1.0.2",
+    "esbuild": "^0.14.14",
+    "prettier": "^2.5.1",
+    "rollup": "^2.66.1",
+    "rollup-plugin-dts": "^4.1.0",
+    "rollup-plugin-esbuild": "^4.8.2",
+    "turbo": "latest"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "yarn@1.22.17",
+  "dependencies": {
+    "@changesets/cli": "^2.20.0"
+  }
+}
