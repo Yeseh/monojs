@@ -12,6 +12,5 @@
     "type": "module",
     "devDependencies": {
         "typescript": "^4.5.5"
-    },
-    "dependencies": {}
+    }
 }

@@ -1,9 +1,9 @@
 {
-    "name": "@yeseh/soar-mmsql",
+    "name": "@yeseh/soar-sql",
     "version": "0.0.1",
-    "main": "dist/soar-mmsql.js",
-    "module": "dist/soar-mmsql.mjs",
-    "typings": "dist/soar-mmsql.d.ts",
+    "main": "dist/soar-sql.js",
+    "module": "dist/soar-sql.mjs",
+    "typings": "dist/soar-sql.d.ts",
     "scripts": {
         "build": "rollup -c"
     },

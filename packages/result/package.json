@@ -9,7 +9,5 @@
     "author": "Yeseh",
     "license": "MIT",
     "type": "module",
-    "devDependencies": {},
-    "dependencies": {},
     "typings": "dist/result.d.ts"
 }

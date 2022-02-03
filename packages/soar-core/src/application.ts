@@ -16,8 +16,8 @@ export interface ApplicationOpts {
 
 export interface RouterOptions {
 	name: string;
-	table: string;
-	idField?: string;
+	collection: string;
+	idField: string;
 	authenticator?: IAuthenticator;
 }
 
@@ -25,33 +25,32 @@ export class Application {
 	_adapter: IAdapter 
 	_app: express.Application
 	autoloadLocation: PathLike;
-	initRequestMw?: Handler = undefined;
+	initRequestMw: Handler;
 
-	constructor(adapter: IAdapter, opts: ApplicationOpts) {
+	constructor(adapter: IAdapter, opts?: Partial<ApplicationOpts>) {
 		this._adapter = adapter;
 		this._app = express();
-		this.initRequestMw = opts.initRequestMw ?? buildInitRequest(this._adapter);
-		this.autoloadLocation = opts.autoloadFolder;
+		this.initRequestMw = opts?.initRequestMw ?? buildInitRequest(this._adapter);
+		this.autoloadLocation = opts?.autoloadFolder ?? "./routers";
 	}
 
-	async start(port: number): Promise<void> {
+	async start(port: number = 3000): Promise<void> {
 		await this._adapter.init();
 
 		this._app.listen(port,
-			() => console.log('Induct app started on port ' + port)
+			() => console.log('Soar app started on port ' + port)
 		);
 	}
 
 	router(opts: RouterOptions): void {
 		const router = Router();
-		const initRequest = buildInitRequest(this._adapter);
-		const chain: Handler[] = [initRequest];
+		const chain: Handler[] = [this.initRequestMw];
 
 		if (opts.authenticator) {
 			chain.push(opts.authenticator.authenticate);
 		}
 
-		this.getRoute(router, opts.table, chain);
+		this.getRoute(router, opts.collection, chain);
 		this._app.use(`/${opts.name}`, router);
 	}
 
@@ -62,6 +61,6 @@ export class Application {
 	}
 }
 
-export function createApp(adapter: IAdapter, opts: ApplicationOpts): Application {
+export function createApp(adapter: IAdapter, opts?: ApplicationOpts): Application {
 	return new Application(adapter, opts);
 } 

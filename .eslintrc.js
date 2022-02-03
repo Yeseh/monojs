@@ -238,7 +238,7 @@ module.exports = {
 			'off',
 			{
 				code: 80,
-				tabWidth: 2,
+				tabWidth: 4,
 				ignoreUrls: true,
 				ignoreComments: true,
 				ignoreStrings: true,

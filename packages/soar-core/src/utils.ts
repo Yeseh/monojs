@@ -5,7 +5,7 @@ import { IResult, IRecordSet } from 'mssql';
 
 export const validArray = (arr: any): boolean => Array.isArray(arr) && arr.length > 0;
 
-export const unwrapResult =
+export const handleAsync =
 	(fn: Handler) => (req: Request, res: Response, next: NextFunction): Promise<any> => {
 		return Promise.resolve(fn(req, res, next))
 			.catch(next);

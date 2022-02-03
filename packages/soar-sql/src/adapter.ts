@@ -1,4 +1,3 @@
-import { warn } from 'console';
 import mssql, { IRecordSet } from 'mssql';
 import { Result, Option } from '@yeseh/result';
 import { IAdapter } from '@yeseh/soar-core';
@@ -73,7 +72,6 @@ export class MSSQLAdapter implements IAdapter {
 		}
 
 		const query = `SELECT ${selectList} FROM dbo.[${table}] ${where} ${groupBy}`;
-		console.log(query);
 
 		return new Result(request.query(query));
 	}
@@ -166,6 +164,8 @@ export class MSSQLAdapter implements IAdapter {
 		for (const key of Object.keys(setObj)) {
 			const value = setObj[key];
 			let type;
+
+			// TODO: watch this, gets useless later
 			switch (typeof value) {
 			case 'number':
 				type = mssql.Decimal();

@@ -4,7 +4,7 @@ import { Result } from '@yeseh/result';
 declare global {
 	namespace Express {
 		export interface Request {
-			result?: Result;
+			result?: Result<unknown>;
 			adapter?: IAdapter
 		}
 	}

@@ -5,11 +5,9 @@
   "module": "lib/index.es.js",
   "typings": "lib/index.d.ts",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rm -rf ./dist && rollup -c"
   },
   "author": "Yeseh",
   "license": "MIT",
-  "type": "module",
-  "devDependencies": {},
-  "dependencies": {}
+  "type": "module"
 }
